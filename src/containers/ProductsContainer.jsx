@@ -13,15 +13,12 @@ const ProductsContainer = () => {
         const data = [
             {id:1,name:'shoes',
             img:'https://cdn.soyunperro.com/wp-content/uploads/perrocontento.jpg'},
-            {id:1,name:'shoes',
+            {id:2,name:'shirt',
             img:'https://cdn.soyunperro.com/wp-content/uploads/perrocontento.jpg'},
-            {id:1,name:'shoes',
-            img:'https://cdn.soyunperro.com/wp-content/uploads/perrocontento.jpg'},
-            {id:1,name:'shoes',
+            {id:3,name:'books',
             img:'https://cdn.soyunperro.com/wp-content/uploads/perrocontento.jpg'},
         ]
         setProducts(data);
-
         return () => {
             //cuando se esta por morir un component
             console.log('Se esta por morir el comente');
@@ -31,14 +28,17 @@ const ProductsContainer = () => {
         carrito.push(name);
         setCarrito([...carrito]);
     }
-
+    console.log(carrito);
     return (
         <div className="container bg-warning">
             <InfoBarComponent carrito={carrito} />
             <div className="row px-2 py-2">
-            <CardComponent title ={'Hola...'} img={'https://cdn.soyunperro.com/wp-content/uploads/perrocontento.jpg'} agregarAlCarrito={AgregarAlCarrito }/>
-            <CardComponent title ={'Hola...'} img={'https://cdn.soyunperro.com/wp-content/uploads/perrocontento.jpg'} agregarAlCarrito={AgregarAlCarrito }/>
-            <CardComponent title ={'Hola...'} img={'https://cdn.soyunperro.com/wp-content/uploads/perrocontento.jpg'} agregarAlCarrito={AgregarAlCarrito }/>
+                {products.map(element => {
+                    return (
+                        <CardComponent title={element.name} img={element.img} 
+                        agregarAlCarrito={AgregarAlCarrito }/>
+                    )
+                })}
             </div>
         </div> 
     )
