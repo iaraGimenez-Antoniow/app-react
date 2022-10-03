@@ -6,7 +6,7 @@ const CardComponent = ({title, img, agregarAlCarrito}) => {
                 <h5 className="card-title">{title}</h5>
                 <p className="card-text">Some quick example text</p>
                 <button className="btn btn-primary" onClick={(event) => 
-                    {agregarAlCarrito(event,'toto')}}
+                    {agregarAlCarrito(event,title)}}
                     >Agregar al carrito</button>
             </div>
         </div> 
