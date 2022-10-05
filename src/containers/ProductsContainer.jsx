@@ -24,9 +24,10 @@ const ProductsContainer = () => {
             console.log('Se esta por morir el comente');
         }
     }, []);    
-    const AgregarAlCarrito = (event, name) => {
-        carrito.push(name);
+    const AgregarAlCarrito = (event, product) => {
+        carrito.push(product);
         setCarrito([...carrito]);
+        console.log(carrito);
     }
     console.log(carrito);
     return (
@@ -35,8 +36,7 @@ const ProductsContainer = () => {
             <div className="row px-2 py-2">
                 {products.map(element => {
                     return (
-                        <CardComponent title={element.name} img={element.img} 
-                        agregarAlCarrito={AgregarAlCarrito }/>
+                        <CardComponent product={element} agregarAlCarrito={AgregarAlCarrito }/>
                     )
                 })}
             </div>
